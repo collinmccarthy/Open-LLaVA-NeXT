@@ -25,8 +25,6 @@ See more details in [ModelZoo.md](docs/ModelZoo.md).
 ## 👨‍💻 ToDo
 
 - [x] Reproduce LLaVA-Next-LLaMA3-8B
-- [ ] Reproduce LLaVA-Next-Nous-Yi-34B
-- [ ] Support SigLIP and more LLMs with various scales (Need the help from community!)
 - [ ] Integrate [VLMEvalKit](https://github.com/open-compass/VLMEvalKit) for convenient evaluation
 
 ## 🔧 Install
