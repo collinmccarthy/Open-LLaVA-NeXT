@@ -116,7 +116,7 @@ If you find this project useful in your research, please consider cite:
 ```bibtex
 @misc{chen2024open,
   title={Open-LLaVA-NeXT: An open-source implementation of LLaVA-NeXT series for facilitating the large multi-modal model community.},
-  author={Lin, Chen and Long, Xing},
+  author={Chen, Lin and Xing, Long},
   howpublished = {\url{https://github.com/xiaoachen98/Open-LLaVA-NeXT}},
   year={2024},
   doi={10.5281/zenodo.13935471}
