@@ -185,6 +185,7 @@ def eval_model(
             top_p=top_p,
             num_beams=num_beams,
             max_new_tokens=max_new_tokens,
+            pad_token_id=tokenizer.pad_token_id,
             use_cache=True,
             # DEBUG ONLY
             tokenizer=tokenizer if print_inputs else None,
