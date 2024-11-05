@@ -2,22 +2,11 @@
 
 Manual diff with LLaVA repo by merging these files into main and removing whitespace-only and import-order-only changes.
 
+## Training Changes
+
 - `conversation.py` (orig Open-LLaVA-NeXt change)
     - Added `conv_llava_llama_3` conversation (use "llava_llama_3" for --conv-mode or --version args)
-- `eva/model_vqa_loader.py` (orig Open-LLaVA-NeXt change)
-    - Added `args.square_eval`
-    - Added `pad_token_id=tokenizer.pad_token_id` to model.generate()
-- `eval/model_vqa_mmbench.py` (orig Open-LLaVA-NeXt change)
-    - Added `args.square_eval`
-    - Added `pad_token_id=tokenizer.pad_token_id` to model.generate()
-- `eval/model_vqa_science.py` (orig Open-LLaVA-NeXt change)
-    - Added `args.square_eval`
-    - Added `pad_token_id=tokenizer.pad_token_id` to model.generate()
-- `eval/model_vqa.py` (orig Open-LLaVA-NeXt change)
-    - Added `args.square_eval`
-    - Added `pad_token_id=tokenizer.pad_token_id` to model.generate()
-- `eval/run_llava.py` (orig Open-LLaVA-NeXt change)
-    - Added `pad_token_id=tokenizer.pad_token_id` to model.generate()
+
 - `model/llava_arch.py` (our change)
     - Returns attention mask if padded (necessary for v1.6 batch inference)
 - `model/multimodal_encoder/clip_encoder.py`
@@ -46,19 +35,36 @@ Manual diff with LLaVA repo by merging these files into main and removing whites
         - Adds support for `unfreeze_mm_vision_tower` (calls `unfreeze_vit()`)
         - Prints total and trainable params
         - Adds `mm_vision_tower_lr` and `pad_token_id` to `model.config`
-- `scripts/convert_seed_for_submission.py`
-    - Remove `video` eval and remove outputting `result_upload_file` (not sure why)
 - `scripts/v1_5`
     - Add `train/finetune.sh` file with srun command for fine-tuning v1.5
     - Change `--model_name_or_path liuhaotian/*` to `--model_name_or_path checkpoints/*`
         - `finetune_task.sh`, `finetune_task_lora.sh`
-- `scripts/v1_5/eval`
-    - Change `--model-path liuhaotian/*` to `--model-path checkpoints/*`
-        - All `.sh` files?
 - `scripts/v1_6`
     - Add `eval` dir with srun-style eval scripts like `scripts/v1_5/eval`
     - Add `train` dir with Vicuna-7B/LLaMA3-8B srun-style train scripts like `scripts/v1_5/train`
 
-### Whitespace-Only Changes
+## Eval-Only Changes
+
+- `eval/model_vqa_loader.py` (orig Open-LLaVA-NeXt change)
+    - Added `args.square_eval`
+    - Added `pad_token_id=tokenizer.pad_token_id` to model.generate()
+- `eval/model_vqa_mmbench.py` (orig Open-LLaVA-NeXt change)
+    - Added `args.square_eval`
+    - Added `pad_token_id=tokenizer.pad_token_id` to model.generate()
+- `eval/model_vqa_science.py` (orig Open-LLaVA-NeXt change)
+    - Added `args.square_eval`
+    - Added `pad_token_id=tokenizer.pad_token_id` to model.generate()
+- `eval/model_vqa.py` (orig Open-LLaVA-NeXt change)
+    - Added `args.square_eval`
+    - Added `pad_token_id=tokenizer.pad_token_id` to model.generate()
+- `eval/run_llava.py` (orig Open-LLaVA-NeXt change)
+    - Added `pad_token_id=tokenizer.pad_token_id` to model.generate()
+- `scripts/v1_5/eval`
+    - Change `--model-path liuhaotian/*` to `--model-path checkpoints/*`
+        - All `.sh` files?
+- `scripts/convert_seed_for_submission.py`
+    - Remove `video` eval and remove outputting `result_upload_file` (not sure why)
+
+### Whitespace-Only Eval Changes
 
 - `eval/model_qa.py` (also changed order of imports)
